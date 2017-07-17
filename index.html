@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <script src="js/knockout-2.1.0.debug.js"></script>
+        <script src="js/jquery/jquery.js"></script>
+        <script src="cart.js"></script>
+    </head>
+    <body>
+        <div>
+            <button data-bind="click: addClicked" data-sku="lego">Add to Cart</button>
+        </div>
+        <div id="cart">
+            <ul>
+                <!-- ko foreach: items -->
+                <li>
+                    <span data-bind="text: sku"></span>(<span data-bind="text: quantity"></span>)
+                    <a href="#" data-bind="click: $parent.removeClicked">Remove</a>
+                </li>
+                <!-- /ko -->
+            </ul>
+        </div>
+        <script type="text/javascript">
+            var cart = new Tekpub.Cart();
+            ko.applyBindings(cart)
+        </script>
+    </body>
+</html>
